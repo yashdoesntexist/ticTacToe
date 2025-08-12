@@ -1,0 +1,55 @@
+h1{
+    text-align: center;
+    font-size: 48px;
+    color: wheat;
+    background-color: rgb(223, 130, 64);
+    padding: 25px;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background-color: chocolate;
+    text-align: center;
+}
+
+.container{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game{
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vmin;
+}
+
+.tab{
+    height: 18vmin;
+    width: 18vmin;
+    border: none;
+    border-radius: 1rem;
+    font-size: 8vmin;
+    color: rgb(223, 130, 64);
+    font-weight: bold;
+    font-family: "Comic Sans MS", "Comic Sans";
+}
+
+.refresh{
+    height: 8vmin;
+    width: 24vmin;
+    border-radius: 1rem;
+    font-size: 6vmin;
+    font-family: Arial, Helvetica, sans-serif  ;
+    color: white;
+    border-color: white;
+    background-color: rgb(223, 130, 64);
+
+}
