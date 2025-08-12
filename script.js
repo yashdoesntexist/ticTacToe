@@ -1,5 +1,6 @@
 let boxes = document.querySelectorAll(".tab");
 let restart = document.querySelector(".refresh");
+let result = document.querySelector(".alert");
 
 let assignTurn = true;
 
@@ -13,14 +14,19 @@ const winningPattern = [
     [3,4,5],
     [6,7,8]
 ];
+let count = 0;
 
-function restartGame(){
-    restart.addEventListener("click", () =>{
-    boxes.forEach((e) =>{
+function checkDraw(){
+    if(count == 9){
+        boxes.forEach((e)=>{
         e.innerText = "";
+        result.innerText="Last game was a draw"
+        count=0;
     });
- });
+    }
 }
+
+
 
 const checkWin = () =>{
     for(let pattern of winningPattern){
@@ -30,7 +36,8 @@ const checkWin = () =>{
 
             if(pos1 != "" && pos2 != "" && pos3 != ""){
                 if(pos1 == pos2 && pos2 == pos3){
-                    alert(`Congrats ${pos1} won!`);
+                    result.innerText = `Congrats ${pos1} won the last game!`;
+                    count = 0;
                     boxes.forEach((e)=>{
                         e.innerText= "";
                     });
@@ -54,15 +61,29 @@ boxes.forEach((box) => {
         } else{
             console.log("I should not be here");
         }
+        count++;
         checkWin();
+        checkDraw();
+        console.log(count);
 
     });
 });
-boxes.forEach((box) =>{
-    box.addEventListener("dblclick", () =>{
-        box.innerText = "";
-    })
-})
+
+function restartGame(){
+    restart.addEventListener("click", () =>{
+    count = 0;
+    result.innerText ="";
+    boxes.forEach((e) =>{
+        e.innerText = "";
+    });
+ });
+}
+// used for debugging only 
+// boxes.forEach((box) =>{
+//     box.addEventListener("dblclick", () =>{
+//         box.innerText = "";
+//     });
+// })
 
 
 restartGame();
